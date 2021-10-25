@@ -1,15 +1,27 @@
+       
         <br>
-        <br>
-        <br>
-        <br>
-        <div id='footer'> 
-        <?php echo "<p>Copyright &copy; 2018- ".date("Y")." Attendance</p>";?>
+        <div class="footer">
+      <nav class="navbar fixed-bottom  navbar-dark bg-primary" style="margin: 0px 11px 0 11px; color:white">
+        <div class="container-fluid">
+          
+          <?php echo "<p>Copyright &copy; 2018- ".date("Y")." Attendance</p>";?>
         </div>
-    </div>
+      </nav>
+        <!-- <div class= "container">
+    <nav class="navbar fixed-bottom navbar-dark bg-primary">
+      <div class= >
+             
+      </div>
+      
+      
+    </nav>
+    </div> -->
+    
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
