@@ -1,21 +1,12 @@
        
-        <br>
-        <div class="footer">
-      <nav class="navbar fixed-bottom  navbar-dark bg-primary" style="margin: 0px 11px 0 11px; color:white">
-        <div class="container-fluid">
-          
-          <?php echo "<p>Copyright &copy; 2018- ".date("Y")." Attendance</p>";?>
+        
+      <div id="footer" class="p-2 bg-primary text-white fixed-bottom" style="margin: 0px 11px 0 11px;">
+       <div class="container-fluid">
+            <p class="text-center">&copy; <?php echo date("Y");?> IT Conference Attendance System. All rights reserved. </p>
         </div>
-      </nav>
-        <!-- <div class= "container">
-    <nav class="navbar fixed-bottom navbar-dark bg-primary">
-      <div class= >
-             
-      </div>
       
       
-    </nav>
-    </div> -->
+       
     
     <!-- Optional JavaScript; choose one of the two! -->
 

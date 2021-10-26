@@ -10,14 +10,12 @@
     }else{
         $id = $_GET['id'];
         $result = $crud-> getAttendeeDetails($id);
-        
-    
-    
+
 ?>
 
     
     <div class="card" style="width: 18rem;">
-        <img src="images/userPic.png" class="card-img-top" alt="...">
+        <img src="<?php echo empty($result['avatar_path']) ? 'uploads/userPic.png' : $result['avatar_path'] ; ?>"class="card-img-top" alt="..."> 
         <div class="card-body">
             <h5 class="card-title"><?php echo $result['firstname'].' '. $result['lastname'];?></h5>
             <h6 class="card-subtitle mb-2 text-muted"><?php echo $result['name'];?></h6>

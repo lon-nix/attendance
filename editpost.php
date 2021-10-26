@@ -14,8 +14,16 @@
       $email = $_POST['email'];
       $phone = $_POST['phone'];
       $specialty = $_POST['specialty'];
+      //$avatar_path = $_POST['avatar_path'];
+
+      $orig_file = $_FILES["avatar"]["tmp_name"];
+      $ext = pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
+      $target_dir = 'uploads/';
+      $destination = "$target_dir$phone.$ext";
+      move_uploaded_file($orig_file,$destination);
+       
       //call edit post function
-      $result = $crud->editAttendee($id,$fname, $lname, $dob, $email, $phone, $specialty);
+      $result = $crud->editAttendee($id,$fname, $lname, $dob, $email, $phone, $specialty, $destination);
 
       //Rediret to viewrecords.php
       if($result){

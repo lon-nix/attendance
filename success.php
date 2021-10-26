@@ -13,8 +13,17 @@
       $email = $_POST['email'];
       $phone = $_POST['phone'];
       $specialty = $_POST['specialty'];
+      
+
+      $orig_file = $_FILES["avatar"]["tmp_name"];
+      $ext = pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
+      $target_dir = 'uploads/';
+      $destination = "$target_dir$phone.$ext";
+      move_uploaded_file($orig_file,$destination);
+       
+
       //call funcation to insert and track if success or not
-      $issuccess = $crud->insertAttendee($fname, $lname, $dob, $email, $phone, $specialty);
+      $issuccess = $crud->insertAttendee($fname, $lname, $dob, $email, $phone, $specialty,$destination);
       $specialtyName = $crud->getSpecialtyById($specialty);
 
       if($issuccess){
@@ -46,7 +55,7 @@
     </div> -->
 
     <div class="card" style="width: 18rem;">
-        <img src="images/userPic.png" class="card-img-top" alt="...">
+        <img src="<?php echo $destination ?>" class="card-img-top"> 
         <div class="card-body">
             <h5 class="card-title"><?php echo $_POST['firstName'].' '. $_POST['lastName'];?></h5>
             <h6 class="card-subtitle mb-2 text-muted"><?php echo $specialtyName['name'];?></h6>
@@ -55,8 +64,6 @@
             <p class="card-text">Phone: <?php echo $_POST['phone'];?></p>
             <p class="card-text">Email: <?php echo $_POST['email'];?></p>
 
-    
-            <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>
 

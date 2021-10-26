@@ -8,7 +8,7 @@
 
     <h1 class="text-center">Registration for IT Confrence</h1>
 
-    <form method="post" action="success.php">
+    <form method="post" action="success.php" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="firstName" class="form-label">First Name</label>
             <input required class="form-control" id="firstName" name="firstName">
@@ -40,6 +40,13 @@
             <input type="text" class="form-control" id="phone" name="phone" aria-describedby="Help">
             <div id="Help" class="form-text">All info used are private.</div>
         </div>
+
+        <div class="mb-3">
+            <label for="avatar" class="form-label">Upload Image (optional)</label>
+            <input class="form-control" type="file" accept="image/*" id="avatar" name="avatar">
+        </div> 
+
+        
         <div class="d-grid gap-2">
             <button type="submit" class="btn btn-primary" name="submit">Submit</button>
             <a href="index.php" class="btn btn-secondary">Cancel</a>

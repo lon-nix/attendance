@@ -9,9 +9,10 @@
         }
 
         //function to insert a new record into the attendee database
-        public function insertAttendee($fname, $lname, $dob, $email, $phone, $specialty){
+        public function insertAttendee($fname, $lname, $dob, $email, $phone, $specialty, $avatar_path){
             try {
-                $sql = "INSERT INTO attendee (firstname, lastname, dateofbirth, emailaddress,phonenumber,specialty_id) VALUES(:fname, :lname, :dob, :email, :phone, :specialty)";
+                $sql = "INSERT INTO attendee (firstname, lastname, dateofbirth, emailaddress,phonenumber,specialty_id, avatar_path) 
+                VALUES(:fname, :lname, :dob, :email, :phone, :specialty, :avatar_path)";
                 $stmt = $this->db->prepare($sql);
 
                 $stmt->bindparam(':fname',$fname);
@@ -20,6 +21,7 @@
                 $stmt->bindparam(':email',$email);
                 $stmt->bindparam(':phone',$phone);
                 $stmt->bindparam(':specialty',$specialty);
+                $stmt->bindparam(':avatar_path',$avatar_path);
                 //execute statement
                 $stmt->execute();
                 return true;
@@ -58,10 +60,10 @@
 
         }
 
-        public function editAttendee($id, $fname, $lname, $dob, $email, $phone, $specialty){
+        public function editAttendee($id, $fname, $lname, $dob, $email, $phone, $specialty, $avatar_path){
             try {
                     $sql = "UPDATE `attendee` SET `firstname`=:fname,`lastname`=:lname,`dateofbirth`=:dob,
-                    `emailaddress`=:email,`phonenumber`=:phone,`specialty_id`=:specialty WHERE `attendee_id`= :id";
+                    `emailaddress`=:email,`phonenumber`=:phone,`specialty_id`=:specialty, `avatar_path`=:avatar_path WHERE `attendee_id`= :id";
                     
                         $stmt = $this->db->prepare($sql);
 
@@ -72,6 +74,7 @@
                         $stmt->bindparam(':email',$email);
                         $stmt->bindparam(':phone',$phone);
                         $stmt->bindparam(':specialty',$specialty);
+                        $stmt->bindparam(':avatar_path',$avatar_path);
                         //execute statement
                         $stmt->execute();
                         return true;

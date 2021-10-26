@@ -8,8 +8,10 @@
     
     ?>
 
+    
+    <div class="table-wrapper-scroll-y">
+    <div class="container">
     <h1 class="text-center">Attendee List</h1>
-
     <table class="table table-striped table-hover">
   <thead>
     <tr>
@@ -41,5 +43,7 @@
    
   </tbody>
 </table>
+   </div>
+   </div>
 
     <?php require_once 'includes/footer.php';?>

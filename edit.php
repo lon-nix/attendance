@@ -19,7 +19,7 @@
 
     <h1 class="text-center">Edit Record</h1>
 
-    <form method="post" action="editpost.php">
+    <form method="post" action="editpost.php" enctype="multipart/form-data">
     <fieldset disabled>
         <label class="form-label">ID </label>
         <input class="text-center" value = "<?php echo $attendee['attendee_id'] ?>">
@@ -56,6 +56,11 @@
             <input type="text" class="form-control" value = "<?php echo $attendee['phonenumber'] ?>"  id="phone" name="phone" aria-describedby="Help">
             <div id="Help" class="form-text">All info used are private.</div>
         </div>
+        <div class="mb-3">
+            <label for="avatar" class="form-label">Upload Image (optional)</label>
+            <input class="form-control" type="file" accept="image/*" id="avatar" name="avatar">
+        </div> 
+
         <div class="d-grid gap-2">
             
             <button type="submit" class="btn btn-success" name="submit">Save</button>
