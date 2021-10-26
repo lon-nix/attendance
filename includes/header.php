@@ -1,3 +1,8 @@
+<?php 
+//This includes the seesuin file. This file contains code that starts/resumes a session.
+//by having it in the header file. It will be included on every page, allowing session capability to be used on every page across the website.
+  include_once 'includes/session.php';
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,19 +16,6 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
-    <!-- Google Fonts Roboto -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
-    />
-    <!-- MDB -->
-    <link rel="stylesheet" href="css/mdb.min.css" />
-    
 
     <!-- JQuery CSS -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
@@ -40,6 +32,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
+            
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="index.php">Home</a>
@@ -47,11 +40,31 @@
               <li class="nav-item">
                 <a class="nav-link" href="viewrecords.php">View Attendees</a>
               </li> 
+            </ul>
+         
+        
+        <?php 
+              if(!isset($_SESSION['userid'])){
+            ?>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="register.php">Register Now!</a>
+                <a class="nav-link active" aria-current="page" href="login.php">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="register.php">Register</a>
               </li> 
             </ul>
+            <?php } else { ?>
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Hello <?php echo $_SESSION['username'] ?>!</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link" href="logout.php">Logout <span class="sr-only"></span></a>
+              </li> 
+            </ul>         
+          <?php } ?>
           </div>
-        </div>
+        
       </nav>
       <br/>
